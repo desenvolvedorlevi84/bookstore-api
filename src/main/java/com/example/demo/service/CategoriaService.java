@@ -12,6 +12,8 @@ import com.example.demo.repositories.CategoriaRepository;
 import com.example.demo.service.exceptions.DataIntegrityViolationException;
 import com.example.demo.service.exceptions.ObjectNotFoundException;
 
+import jakarta.validation.Valid;
+
 @Service
 public class CategoriaService {
 
@@ -47,8 +49,8 @@ public class CategoriaService {
 		findById(id);
 		try {
 			repository.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new com.example.demo.service.exceptions.DataIntegrityViolationException("Categoria nao pode ser deletada! Possui livros associados");
+		} catch (org.springframework.dao.DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException("Categoria não pode ser deletada! Possui livros associados");
 		}
 	}
 
