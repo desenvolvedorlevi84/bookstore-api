@@ -12,8 +12,6 @@ import com.example.demo.repositories.CategoriaRepository;
 import com.example.demo.service.exceptions.DataIntegrityViolationException;
 import com.example.demo.service.exceptions.ObjectNotFoundException;
 
-import jakarta.validation.Valid;
-
 @Service
 public class CategoriaService {
 
